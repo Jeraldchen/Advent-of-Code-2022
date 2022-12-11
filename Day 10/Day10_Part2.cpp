@@ -1,5 +1,4 @@
 #include <iostream>
-//#include <unordered_map>
 using namespace std;
 
 int main() {
@@ -20,11 +19,9 @@ int main() {
     sprite[x] = '#';
     sprite[x+1] = '#';
     int cycle_count = -1;
-    //unordered_map<int, int> registers; //key is cycle count, value is x
     while (cin >> instruction) {
         cycle_count++;
         if (instruction == "noop") {
-            //registers[cycle_count] = x; //do nothing just update map
             if (sprite[cycle_count % 40] == '#') {
                 map[cycle_count / 40][cycle_count % 40] = '#';
             }
@@ -33,14 +30,12 @@ int main() {
             if (sprite[cycle_count % 40] == '#') {
                 map[cycle_count / 40][cycle_count % 40] = '#';
             }
-            //registers[cycle_count] = x; //update map 
             cycle_count++; 
             if (sprite[cycle_count % 40] == '#') {
                 map[cycle_count / 40][cycle_count % 40] = '#';
             } else {
                 map[cycle_count / 40][cycle_count % 40] = '.';
             }
-            //registers[cycle_count] = x; //update map
             x += input; //update x after cycle is over
             for (int i = 0; i < 40; ++i) {
                 sprite[i] = '.';
